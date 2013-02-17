@@ -3,12 +3,23 @@
 	<head>
 		<meta charset="utf-8">
 		<title>TheOpenCodex Sidescroller HTML5 Game</title>
-		<link href="style.css" rel="stylesheet" type="text/css" /><!-- Loads the games main stylesheet -->
+		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
+		<noscript>
+			<div class="error-msg">
+				<p>
+					Please enable JavaScript to experience the game.
+				</p>
+			</div>
+		</noscript>
 		<canvas id="canvas">
-			Your browser doesn't support HTML 5!<!-- This text will display if canvas isn't supported-->
+			<div class="error-msg">
+				<p>Your browser doesn't support HTML 5!</p>
+			</div>
 		</canvas>
-		<script src="main.js"></script><!-- Loads the games main JavaScript file, assuming we're going to use JavaScript... -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+		<script src="main.js"></script>
 	</body>
 </html>
