@@ -11,6 +11,6 @@ div.error-msg {
 	font-size: 1.1em;
 }
 div.error-msg p:before {
-	content: "Uh Oh!";
+	content: "Uh Oh! ";
 	font-weight: bold;
 }
