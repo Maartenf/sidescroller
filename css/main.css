@@ -6,6 +6,8 @@ div.error-msg {
 	color: #b94a48;
 	background-color: #f2dede;
 	border-color: #eed3d7;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 	border-radius: 5px;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 1.1em;
