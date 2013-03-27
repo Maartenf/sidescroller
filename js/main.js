@@ -1,1 +1,1 @@
-// This is the games main JavaScript file
+// This is the game's main JavaScript file

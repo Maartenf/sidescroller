@@ -1,3 +1,5 @@
+:focus { outline : none; };
+
 /* Error Messages */
 div.error-msg {
 	margin-bottom: 15px;
@@ -14,6 +16,7 @@ div.error-msg {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 1.1em;
 }
+
 div.error-msg p:before {
 	content: "Uh Oh! ";
 	font-weight: bold;
