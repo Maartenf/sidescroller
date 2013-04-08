@@ -1,7 +1,7 @@
 // This is the game's main JavaScript file
 
 // Globals
-var gameLoop;
+var gameLoop = new GameLoop();
 
 $(document).ready(function() {
 	
@@ -11,7 +11,7 @@ $(document).ready(function() {
 	function startGame() {
 		
 		// Creates an instance of class GameLoop
-		var gameLoop = new GameLoop();
+		gameLoop = new GameLoop();
 		gameLoop.start();
 	}
 	
