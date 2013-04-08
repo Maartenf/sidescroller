@@ -1,23 +1,23 @@
 // This is the game's main JavaScript file
 
-// Globals
-var gameLoop = new GameLoop();
-
 $(document).ready(function() {
 	
-	canvas = $('#canvas')[0];
-	ctx = canvas.getContext('2d');
-	
+	var canvas = $('#canvas')[0],
+	    ctx = canvas.getContext('2d'),
+	    isRunning;
+
+	function gameLoop(running) {
+		while (running) {
+
+		}
+	}	
+
 	function startGame() {
-		
-		// Creates an instance of class GameLoop
-		gameLoop = new GameLoop();
-		gameLoop.start();
+		isRunning = true;
+		gameLoop(isRunning);
 	}
 	
-	function stopGame() {
-		
-		// Stops the game loop e.g. for pause or exit
-		gameLoop.stop();
+	function stopGame() {	
+		isRunning = false;
 	}
 });
