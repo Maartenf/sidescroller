@@ -29,9 +29,9 @@ $(document).ready(function() {
 
 	function gameLoop(running) {
 		while (running) {
-			requestAnimFrame(gameLoop);
 			update();
 			render();
+			requestAnimFrame(gameLoop);
 		}
 	}	
 
