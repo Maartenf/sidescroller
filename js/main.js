@@ -38,7 +38,7 @@ $(document).ready(function() {
 		
 	}
 
-	function (running) {
+	function updateScreen(running) {
 		
 		if ( !running ) {
 			
