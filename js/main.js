@@ -5,23 +5,28 @@ $(document).ready(function() {
 	var canvas = $('#canvas')[0],
 	    ctx = canvas.getContext('2d'),
 	    isRunning,
-	    delayTime;
+	    delayTime,
+	    // Future animation
+	    FPS = delayTime * 1000;
 
-	// Better for animating then SetTimeout()
-	// Some browser lack support for it so this kinda fixes it in a way
+	// Animation fix instead of setInterval() for the lack of support of browsers.
 	window.requestAnimFrame = (function(){
+		
 	 	return  window.requestAnimationFrame       ||
         	window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame    ||
             function( callback ){
-            	/* Okay, but what are you going to do if you're playing on a slow or fast machine?
-            	So you need to count how many delaytime you really need. I should put this
-            	in the gameloop class? Like that, you can count the time between the clear,
-            	update and render methods.*/
-            	// EDIT::::: Fixed in class gameLoop (see delayTime).
+            	
                 window.setTimeout(callback, delayTime);
         	};
 	})();
+	
+	// Clears the canvas and makes place for a new frame
+	function clear() {
+		
+		context.fillStyle = "white";
+		context.fillRect(0, 0, canvas.width, canvas.height);
+	}
 
 	// Updates the position of the stuff or whatever its gonna do
 	function update() {
@@ -34,11 +39,14 @@ $(document).ready(function() {
 	}
 
 	function gameLoop(running) {
+		
 		if ( !running ) {
-			return
+			
+			return;
 		}
 		var beforeTime = new Date().getUTCMilliseconds();
 		
+		clear();
 		update();
 		render();
 		requestAnimFrame(gameLoop);
@@ -48,11 +56,13 @@ $(document).ready(function() {
 	}	
 
 	function startGame() {
+		
 		isRunning = true;
 		gameLoop(window.isRunning);
 	}
 	
-	function stopGame() {	
+	function stopGame() {
+		
 		isRunning = false;
 	}
 });
