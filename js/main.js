@@ -34,21 +34,22 @@ $(document).ready(function() {
 	}
 
 	function gameLoop(running) {
-		while (running) {
-			var beforeTime = new Date().getUTCMilliseconds();
-			
-			update();
-			render();
-			requestAnimFrame(gameLoop);
-			
-			var afterTime = new Date.getUTCMilliseconds();
-			delayTime = afterTime - beforeTime;
+		if ( running ) {
+			return
 		}
+		var beforeTime = new Date().getUTCMilliseconds();
+		
+		update();
+		render();
+		requestAnimFrame(gameLoop);
+		
+		var afterTime = new Date.getUTCMilliseconds();
+		delayTime = afterTime - beforeTime;
 	}	
 
 	function startGame() {
 		isRunning = true;
-		gameLoop(isRunning);
+		gameLoop(window.isRunning);
 	}
 	
 	function stopGame() {	
