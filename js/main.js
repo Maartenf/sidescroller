@@ -4,7 +4,8 @@ $(document).ready(function() {
 	
 	var canvas = $('#canvas')[0],
 	    ctx = canvas.getContext('2d'),
-	    isRunning;
+	    isRunning,
+	    delayTime;
 
 	// Better for animating then SetTimeout()
 	// Some browser lack support for it so this kinda fixes it in a way
@@ -17,7 +18,8 @@ $(document).ready(function() {
             	So you need to count how many delaytime you really need. I should put this
             	in the gameloop class? Like that, you can count the time between the clear,
             	update and render methods.*/
-                window.setTimeout(callback, 1000 / 60);
+            	// EDIT::::: Fixed in class gameLoop (see delayTime).
+                window.setTimeout(callback, delayTime);
         	};
 	})();
 
@@ -33,9 +35,14 @@ $(document).ready(function() {
 
 	function gameLoop(running) {
 		while (running) {
+			var beforeTime = new Date().getUTCMilliseconds();
+			
 			update();
 			render();
 			requestAnimFrame(gameLoop);
+			
+			var afterTime = new Date.getUTCMilliseconds();
+			delayTime = afterTime - beforeTime;
 		}
 	}	
 
