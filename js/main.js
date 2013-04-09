@@ -13,6 +13,10 @@ $(document).ready(function() {
         	window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame    ||
             function( callback ){
+            	/* Okay, but what are you going to do if you're playing on a slow or fast machine?
+            	So you need to count how many delaytime you really need. I should put this
+            	in the gameloop class? Like that, you can count the time between the clear,
+            	update and render methods.*/
                 window.setTimeout(callback, 1000 / 60);
         	};
 	})();
