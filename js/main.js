@@ -34,7 +34,7 @@ $(document).ready(function() {
 	}
 
 	function gameLoop(running) {
-		if ( running ) {
+		if ( !running ) {
 			return
 		}
 		var beforeTime = new Date().getUTCMilliseconds();
