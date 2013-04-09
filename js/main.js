@@ -12,13 +12,13 @@ $(document).ready(function() {
 	// Animation fix instead of setInterval() for the lack of support of browsers.
 	window.requestAnimFrame = (function(){
 		
-	 	return  window.requestAnimationFrame       ||
+		return  window.requestAnimationFrame       ||
         	window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame    ||
-            function( callback ){
-            	
-                window.setTimeout(callback, delayTime);
-        	};
+		window.mozRequestAnimationFrame    ||
+            	function(callback){
+            		
+            		window.setTimeout(callback, delayTime);
+		};
 	})();
 	
 	// Clears the canvas and makes place for a new frame
@@ -38,7 +38,7 @@ $(document).ready(function() {
 		
 	}
 
-	function gameLoop(running) {
+	function (running) {
 		
 		if ( !running ) {
 			
@@ -49,7 +49,7 @@ $(document).ready(function() {
 		clear();
 		update();
 		render();
-		requestAnimFrame(gameLoop);
+		requestAnimFrame(GameLoop);
 		
 		var afterTime = new Date.getUTCMilliseconds();
 		delayTime = afterTime - beforeTime;
@@ -58,7 +58,7 @@ $(document).ready(function() {
 	function startGame() {
 		
 		isRunning = true;
-		gameLoop(window.isRunning);
+		GameLoop(window.isRunning);
 	}
 	
 	function stopGame() {
