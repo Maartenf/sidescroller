@@ -1,5 +1,5 @@
 /* File: map.js
-   Desc: A class for maps. Maybe for a future map editor? /*
+   Desc: A class for maps. Maybe for a future map editor? */
 
 function map(tilesArray, canvas) {
 
