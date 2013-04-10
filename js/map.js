@@ -1,7 +1,7 @@
 /* File: map.js
    Desc: A class for maps. Maybe for a future map editor? */
 
-function map(tilesArray, canvas, viewPoint) {
+function Map(tilesArray, canvas, viewPoint) {
 
   // Globals
   var canvasWidth = canvas.width;
