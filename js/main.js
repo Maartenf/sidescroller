@@ -7,7 +7,9 @@ $(document).ready(function() {
 	    isRunning,
 	    delayTime,
 	    // Future animation
-	    FPS = delayTime * 1000;
+	    FPS = delayTime * 1000,
+	    // Atiles for map class
+	    map = [];
 
 	// Animation fix instead of setInterval() for the lack of support of browsers.
 	window.requestAnimFrame = (function(){
@@ -58,6 +60,9 @@ $(document).ready(function() {
 	function startGame() {
 		
 		isRunning = true;
+		
+		// Call to map class.
+		new Map(tiles, canvas, 0);
 		GameLoop(window.isRunning);
 	}
 	
