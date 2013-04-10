@@ -38,7 +38,7 @@ $(document).ready(function() {
 		
 	}
 
-	function updateScreen(running) {
+	function GameLoop(running) {
 		
 		if ( !running ) {
 			
