@@ -1,7 +1,7 @@
 /* File: map.js
    Desc: A class for maps. Maybe for a future map editor? */
 
-function map(tilesArray, canvas) {
+function map(tilesArray, canvas, viewPoint) {
 
   // Globals
   var canvasWidth = canvas.width;
@@ -19,9 +19,9 @@ function map(tilesArray, canvas) {
   function initializeTiles() {
 
     /* Warning! We're using a two demensional array for initializing the tiles. This can be new for you */
-    for (var i = 0; i <= maxTilesX; i++) {
+    for (var i = viewPoint; i <= maxTilesX; i++) {
 
-      for (var y = 0; y <= maxTilesY; y++) {
+      for (var y = viewPoint; y <= maxTilesY; y++) {
         
         // Loop trough tilesArray and initialize the tiles and draw them.
         tilesArray[i][y];
