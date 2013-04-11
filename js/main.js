@@ -70,4 +70,12 @@ $(document).ready(function() {
 		
 		isRunning = false;
 	}
+	
+	canvas.keyDown(function(event) {
+		
+		event.preventDefault();
+		var key = event.keyCode();
+		
+		// ...
+	});
 });
