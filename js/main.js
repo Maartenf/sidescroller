@@ -46,14 +46,14 @@ $(document).ready(function() {
 			
 			return;
 		}
-		var beforeTime = new Date().getUTCMilliseconds();
+		var beforeTime = performance.now();
 		
 		clear();
 		update();
 		render();
 		requestAnimFrame(GameLoop);
 		
-		var afterTime = new Date.getUTCMilliseconds();
+		var afterTime = performance.now()
 		delayTime = afterTime - beforeTime;
 	}	
 
