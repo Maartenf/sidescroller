@@ -7,10 +7,14 @@ $(document).ready(function() {
 	    
 	var isRunning = false;
 	var delayTime = 0;
-	// Future animation
-	var FPS = delayTime * 1000;
 	
-	// Tiles for map class
+	var x = 0;
+	var y = 0;
+	
+	var xChange = 10;
+	var yChange = 10;
+	
+	// Tiles for Map class
 	var map = [];
 	
 	// Clears the canvas and makes place for a new frame
@@ -21,13 +25,14 @@ $(document).ready(function() {
 
 	// Updates the position of the stuff or whatever it's going to do
 	function update() {
-		
+		x += delayTime / xChange;
+		y += delayTime / yChange;
 	}
 
 	// Renders the new scene
 	function render() {
 		ctx.fillStyle = "cyan";
-		ctx.fillRect(0, 0, 40, 40);
+		ctx.fillRect(x, y, 40, 40);
 	}
 
 	function GameLoop(running) {
@@ -59,6 +64,24 @@ $(document).ready(function() {
 		
 		isRunning = false;
 	}
+	
+	window.onkeydown = function(event) {
+		event = event || window.event;
+		var keyCode = e.keyCode || e.which;
+		
+		if (keyCode === 37) {
+			xChange = 100;
+			yChange = 100;
+		}
+	};
+	
+	window.onkeyup = function(event) {
+		event = event || window.event;
+		var keyCode = e.keyCode || e.which;
+		
+		xChange = 0;
+		yChange = 0;
+	};
 	
 	startGame();
 });
