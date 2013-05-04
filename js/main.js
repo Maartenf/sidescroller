@@ -1,69 +1,58 @@
 // This is the game's main JavaScript file
 
 $(document).ready(function() {
-	
-	var canvas = $('#canvas')[0],
-	    ctx = canvas.getContext('2d'),
-	    isRunning,
-	    delayTime,
-	    // Future animation
-	    FPS = delayTime * 1000,
-	    // Atiles for map class
-	    map = [];
 
-	// Animation fix instead of setInterval() for the lack of support of browsers.
-	window.requestAnimFrame = (function(){
-		
-		return  window.requestAnimationFrame       ||
-        	window.webkitRequestAnimationFrame ||
-		window.mozRequestAnimationFrame    ||
-            	function(callback){
-            		
-            		window.setTimeout(callback, delayTime);
-		};
-	})();
+	var canvas = document.getElementById("theCanvas");
+	var ctx = canvas.getContext('2d');
+	    
+	var isRunning = false;
+	var delayTime = 0;
+	// Future animation
+	var FPS = delayTime * 1000;
+	
+	// Tiles for map class
+	var map = [];
 	
 	// Clears the canvas and makes place for a new frame
 	function clear() {
-		
-		context.fillStyle = "white";
-		context.fillRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
 	}
 
-	// Updates the position of the stuff or whatever its gonna do
+	// Updates the position of the stuff or whatever it's going to do
 	function update() {
-
+		
 	}
 
 	// Renders the new scene
 	function render() {
-		
+		ctx.fillStyle = "cyan";
+		ctx.fillRect(0, 0, 40, 40);
 	}
 
 	function GameLoop(running) {
-		
-		if ( !running ) {
-			
-			return;
-		}
-		var beforeTime = performance.now();
-		
-		clear();
-		update();
-		render();
-		requestAnimFrame(GameLoop);
-		
-		var afterTime = performance.now()
-		delayTime = afterTime - beforeTime;
+		setInterval(function() {
+			if (!running) {
+				return;
+			} else {
+				var beforeTime = performance.now();
+				
+				clear();
+				update();
+				render();
+
+				var afterTime = performance.now()
+				delayTime = afterTime - beforeTime;
+			}
+		}, delayTime);
 	}	
 
 	function startGame() {
-		
 		isRunning = true;
 		
 		// Call to map class.
-		new Map(tiles, canvas, 0);
-		GameLoop(window.isRunning);
+		//new Map(tiles, canvas, 0);
+		new GameLoop(isRunning);
 	}
 	
 	function stopGame() {
@@ -71,11 +60,5 @@ $(document).ready(function() {
 		isRunning = false;
 	}
 	
-	canvas.keyDown(function(event) {
-		
-		event.preventDefault();
-		var key = event.keyCode();
-		
-		// ...
-	});
+	startGame();
 });
